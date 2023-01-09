@@ -5,10 +5,10 @@ import pandas as pd
 from datetime import datetime
 import numpy as np
 import warnings
-from PIL import Image
-from PIL import ImageDraw
+# from PIL import Image
+# from PIL import ImageDraw
 # from tkinter.tix import COLUMN
-from pyparsing import empty
+# from pyparsing import empty
 from haversine import haversine
 import webbrowser
 # import time
