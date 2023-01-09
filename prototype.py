@@ -1,17 +1,11 @@
 # 프로토타입 코드
-# import tkinter
 import streamlit as st
 import pandas as pd
 from datetime import datetime
-import numpy as np
 import warnings
-# from PIL import Image
-# from PIL import ImageDraw
-# from tkinter.tix import COLUMN
-# from pyparsing import empty
 from haversine import haversine
 import webbrowser
-# import time
+
 st.set_page_config(layout="wide")
 
 empty3,con2,empty4 = st.columns([1.2,1,1])
@@ -301,11 +295,7 @@ with tab2:
 #         st.write(result1[["병원명", "거리", "응급실수", "수술실수", "응급실포화상태"]])
         
     
-    with co1:        
-        
-        
-        
-        
+    with co1:       
         st.write("병원선정")
         st.write("="*40)
         for i in range(result1.shape[0]):
