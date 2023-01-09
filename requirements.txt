@@ -5,3 +5,4 @@ Pillow==9.4.0
 pyparsing==3.0.9
 scikit_learn==1.2.0
 streamlit==1.16.0
+openpyxl
