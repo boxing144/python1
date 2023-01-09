@@ -26,7 +26,7 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', uns
 # 부산광역시 
 # 응급실 실시간 데이터
 pd.set_option('display.max_columns', None)
-url = 'https://apis.data.go.kr/B552657/ErmctInfoInqireService/getEmrrmRltmUsefulSckbdInfoInqire?serviceKey=Zv%2FutM8zPV4Cpby0tQi%2FtiDmHPhc19Zr67HNB4XUKyLt89VHIxcmVtAdRSWES5ve3JQGe4P3OL6dyL6vChTt8Q%3D%3D&STAGE1=%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C&pageNo=1&numOfRows=100'
+url = 'http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEmrrmRltmUsefulSckbdInfoInqire?serviceKey=Zv%2FutM8zPV4Cpby0tQi%2FtiDmHPhc19Zr67HNB4XUKyLt89VHIxcmVtAdRSWES5ve3JQGe4P3OL6dyL6vChTt8Q%3D%3D&STAGE1=%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C&pageNo=1&numOfRows=100'
 df1 = pd.read_xml(url, xpath='.//item')
 df1_c = df1.copy()
 df2 = df1_c[['dutyName','hpid','hvec','hvoc', 'dutyTel3']]
@@ -34,14 +34,14 @@ df2_c = df2.rename(columns={'dutyName':'병원명', 'hpid':'병원코드', 'hvoc
 # df2_c
 
 # 중증질환자 수용가능정보 실시간 데이터
-url = 'https://apis.data.go.kr/B552657/ErmctInfoInqireService/getSrsillDissAceptncPosblInfoInqire?serviceKey=Zv%2FutM8zPV4Cpby0tQi%2FtiDmHPhc19Zr67HNB4XUKyLt89VHIxcmVtAdRSWES5ve3JQGe4P3OL6dyL6vChTt8Q%3D%3D&STAGE1=%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C&pageNo=1&numOfRows=100'
+url = 'http://apis.data.go.kr/B552657/ErmctInfoInqireService/getSrsillDissAceptncPosblInfoInqire?serviceKey=Zv%2FutM8zPV4Cpby0tQi%2FtiDmHPhc19Zr67HNB4XUKyLt89VHIxcmVtAdRSWES5ve3JQGe4P3OL6dyL6vChTt8Q%3D%3D&STAGE1=%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C&pageNo=1&numOfRows=100'
 df3 = pd.read_xml(url, xpath='.//item')
 df3.columns = ['병원명','병원코드','뇌출혈','신생아','중증화상','뇌경색','응급실','심근경색','복부손상','사지접합','응급내시경','응급투석', '조산산모','정신질환자']
 df3.drop(['병원명','정신질환자','응급실'],axis=1, inplace=True)
 # df3
 
 # 병원 위치 데이터
-url = 'https://apis.data.go.kr/B552657/ErmctInfoInqireService/getEgytListInfoInqire?serviceKey=Zv%2FutM8zPV4Cpby0tQi%2FtiDmHPhc19Zr67HNB4XUKyLt89VHIxcmVtAdRSWES5ve3JQGe4P3OL6dyL6vChTt8Q%3D%3D&Q0=%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C&pageNo=1&numOfRows=100'
+url = 'http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEgytListInfoInqire?serviceKey=Zv%2FutM8zPV4Cpby0tQi%2FtiDmHPhc19Zr67HNB4XUKyLt89VHIxcmVtAdRSWES5ve3JQGe4P3OL6dyL6vChTt8Q%3D%3D&Q0=%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C&pageNo=1&numOfRows=100'
 df4 = pd.read_xml(url, xpath='.//item')
 df5 = df4[['phpid','dutyAddr','wgs84Lat','wgs84Lon']]
 df5_c = df5.rename(columns={'phpid':'병원코드','dutyAddr':'병원주소','wgs84Lat':'위도','wgs84Lon':'경도'})
